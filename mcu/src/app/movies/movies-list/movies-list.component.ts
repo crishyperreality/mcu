@@ -1,7 +1,8 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { Movies } from 'src/app/model/movie';
 import { MoviesService } from '../movies.service';
 import { HttpClient } from '@angular/common/http';
+import { Movie } from '../../model/movie';
 
 @Component({
   selector: 'app-movies-list',
@@ -10,6 +11,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class MoviesListComponent implements OnInit, OnChanges {
 
+  @Output() selectedMovie = new EventEmitter<Movie>();
   movies: Movies;
   @Input() release: boolean;
   constructor(private moviesService: MoviesService, httpClient: HttpClient) { }
@@ -38,6 +40,11 @@ export class MoviesListComponent implements OnInit, OnChanges {
     //   console.log(movies)
     //   this.movies = movies;
     // })
+  }
+
+  showMovie(movie: Movie): void {
+    // this.movie = movie;
+    this.selectedMovie.emit(movie);
   }
 
 }

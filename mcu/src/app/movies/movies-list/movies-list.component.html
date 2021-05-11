@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <div class="row display">
-        <div *ngFor="let movie of movies" class="card col-3 m-4 p-4">
+        <div *ngFor="let movie of movies" class="card col-3 m-4 p-4" (click)="showMovie(movie)">
             <div class="card-img">
                 <img src="../../../assets/images/{{movie.image}}.jpg" class="card-img-top" alt="...">
             </div>

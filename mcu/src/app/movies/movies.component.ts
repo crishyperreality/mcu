@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
-import { Movies } from '../model/movie';
+import { Movie, Movies } from '../model/movie';
 import { MoviesService } from './movies.service';
 
 @Component({
@@ -9,12 +9,14 @@ import { MoviesService } from './movies.service';
 })
 export class MoviesComponent implements OnInit, OnChanges {
 
+  @Input() movie: Movie;
   movies: Movies;
   @Input() release: boolean;
   constructor(private moviesService: MoviesService) { }
 
   ngOnChanges(): void {
     console.log(this.release)
+    console.log(this.movie)
   }
 
   ngOnInit(): void {
@@ -29,6 +31,11 @@ export class MoviesComponent implements OnInit, OnChanges {
     //     console.log(movies)
     //     this.movies = movies;
     //   })
+  }
+
+  selectMovie(e): void {
+    this.movie = e;
+    console.log(this.movie)
   }
 
 }
