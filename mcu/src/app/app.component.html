@@ -1,0 +1,9 @@
+<app-header (order)="chronology($event)"></app-header>
+<div class="square">
+    <!-- <app-release-date-list></app-release-date-list> -->
+   <app-movies [release]="order"></app-movies> 
+</div>
+<!-- <div class="stars"></div>
+<div class="twinkling"></div>
+<div class="clouds"></div> -->
+<router-outlet></router-outlet>
