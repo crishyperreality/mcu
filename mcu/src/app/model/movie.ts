@@ -7,6 +7,7 @@ export class Movie {
     chronology_year: number;
     description: string;
     released: boolean;
+    image: string;
 }
 
 export type Movies = Movie[];
