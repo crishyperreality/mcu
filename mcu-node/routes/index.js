@@ -8,5 +8,7 @@ route.get('/', indexController.viewMovies)
 route.get('/releaseOrder', indexController.viewReleaseOrder)
 //localhost:3000/chronologyOrder
 route.get('/chronologyOrder', indexController.viewChronologyOrder)
+//localhost:3000/nextRelease
+route.get('/nextRelease', indexController.getNextRelease)
 
 module.exports = route;

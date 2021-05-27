@@ -8,6 +8,8 @@ import { MoviesComponent } from './movies/movies.component';
 import { MoviesListComponent } from './movies/movies-list/movies-list.component';
 import { MovieDisplayComponent } from './movies/movie-display/movie-display.component';
 import { MoviesService } from './movies/movies.service';
+import { CountdownComponent } from './countdown/countdown.component';
+import { CountdownModule } from 'ngx-countdown';
 
 @NgModule({
   declarations: [
@@ -15,12 +17,14 @@ import { MoviesService } from './movies/movies.service';
     HeaderComponent,
     MoviesComponent,
     MoviesListComponent,
-    MovieDisplayComponent
+    MovieDisplayComponent,
+    CountdownComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    CountdownModule
   ],
   providers: [MoviesService],
   bootstrap: [AppComponent]

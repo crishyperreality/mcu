@@ -1,10 +1,21 @@
-.display {
+.list {
     display: flex;
     flex-direction: center;
     justify-content: center;
+    position: relative;
 }
 .card {
     height: 600px;
+    background-color: rgba($color: #201f1f, $alpha: 0.9);
+    padding: 0;
+    border: double 2px rgba($color: #936cff, $alpha: 0.5);
+    // border: solid 1px rgba($color: #ffffff, $alpha: 0.5);
+    
+    h2 {
+        font-family: 'Teko';
+        text-transform: uppercase;
+        color: #ffffff;
+    }
 
 
     .card-img {
@@ -22,6 +33,72 @@
     animation-name: jumping-card;
     animation-duration: 1s;
     animation-iteration-count: infinite;
+    
+}
+
+.new-modal {
+    // width: 100%;
+    // border: solid 1px orange;
+
+}
+.modal-content{
+
+    height: 700px;
+    background-color: #1a1a1a;
+    // border: solid 1px rgba($color: #936cff, $alpha: 0.5);
+}
+
+.modal-header {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-dialog {}
+
+.modal-header {
+    h3 {
+        font-family: 'Teko';
+        text-transform: uppercase;
+        font-size: 50px;
+        color: #e4e4e4;
+        padding-left: 30px;
+    }
+    h5 {
+        padding-left: 30px;
+        text-transform: uppercase;
+        color: gray;
+        margin: 0;
+
+    }
+}
+.modal-body {
+    p{
+        font-family: 'Miriam Libre';
+        color: rgb(185, 185, 185);
+        font-size: 17px;
+        letter-spacing: 1px;
+        padding: 10px 50px 0px 50px;
+    }
+}
+
+.display {
+    height: 50%;
+    width: 75%;
+    background-color:pink;
+    position: fixed;
+    z-index: 9;
+
+
+}
+
+.display-img {
+    height: 35vh;
+    width: 100%;
+
+    img {
+        height: 100%;
+        width: 100%;
+    }
     
 }
 

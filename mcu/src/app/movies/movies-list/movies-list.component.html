@@ -1,14 +1,45 @@
 <div class="container-fluid">
-    <div class="row display">
-        <div *ngFor="let movie of movies" class="card col-3 m-4 p-4" (click)="showMovie(movie)">
+    <div class="row list">
+        <div *ngFor="let movie of movies" class="card col-3 m-4 p-4" (click)="showMovie(movie)" data-toggle="modal" data-target="#exampleModal">
             <div class="card-img">
                 <img src="../../../assets/images/{{movie.image}}.jpg" class="card-img-top" alt="...">
             </div>
             <!-- <div class="card-body"> -->
-            <h5 class="card-title">{{movie.title}}</h5>
+            <h2 class="card-title">{{movie.title}}</h2>
             <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
             <!-- <a href="#" class="btn btn-primary">Go somewhere</a>
             </div> -->
         </div>
     </div>
 </div>
+
+<div class="modal fade new-modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+            <div class="display-img">
+                <img src="../../../assets/images/banners/{{movie.image}}.jpg">
+            </div>
+            <h3>{{movie.title}}</h3>
+            <h5>{{movie.director}}, {{movie.release_year}}</h5>
+        </div>
+        <div class="modal-body">
+            <p>{{movie.description}}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-light" data-dismiss="modal">Volver</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- <div class="container display">
+    <div class="row">
+        <div class="col-8 display-img">
+            <img src="../../../assets/images/banners/{{movie.image}}.jpg">
+        </div>
+    </div>
+    <div class="row">
+        <p>{{movie.description}}</p>
+    </div>
+</div> -->

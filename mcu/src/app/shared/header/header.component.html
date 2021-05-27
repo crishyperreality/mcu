@@ -1,9 +1,20 @@
 
 <div class="container-fluid navbar">
-    <button class="button" (click)="showRelease()">
-        <p>Release</p>
-    </button>
-    <button class="button" (click)="showChronology()">
-        <p>Chronology</p>
-    </button>
+    <div class="button-group" (mouseover)="explainRelease=true" (mouseout)="explainRelease=false">
+        <button class="button" aria-expanded="false" (click)="showRelease()">
+            <p>Orden de estreno</p>
+        </button>
+        <div *ngIf="explainRelease" class="button-explained">
+            <p>Disfruta del viaje como los fans del MCU desde la primera película</p>
+        </div>
+    </div>
+    <div class="button-group" (mouseover)="explainChronology=true" (mouseout)="explainChronology=false">
+        <button class="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="showChronology()">
+            <p>Orden cronológico</p>
+        </button>
+        <div *ngIf="explainChronology"class="button-explained">
+            <p>Vive la experiencia según la línea temporal de los eventos del MCU</p>
+        </div>
+    </div>
+
 </div>

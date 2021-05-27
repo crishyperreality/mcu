@@ -9,6 +9,8 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   release: boolean;
+  explainRelease: boolean = false;
+  explainChronology: boolean = false;
   @Output() order = new EventEmitter<boolean>();
 
   constructor() { }
@@ -35,3 +37,5 @@ export class HeaderComponent implements OnInit {
 
 
 }
+
+
