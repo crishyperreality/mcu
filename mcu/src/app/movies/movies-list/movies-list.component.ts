@@ -12,8 +12,10 @@ import { Movie } from '../../model/movie';
 export class MoviesListComponent implements OnInit, OnChanges {
 
   @Output() selectedMovie = new EventEmitter<Movie>();
+  movie: Movie;
   movies: Movies;
   @Input() release: boolean;
+  active: boolean = false;
   constructor(private moviesService: MoviesService, httpClient: HttpClient) { }
 
   ngOnChanges(): void {
@@ -35,16 +37,17 @@ export class MoviesListComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
-    // this.moviesService.viewReleaseOrder()
-    // .subscribe((movies)=>{
-    //   console.log(movies)
-    //   this.movies = movies;
-    // })
+    this.moviesService.viewReleaseOrder()
+    .subscribe((movies)=>{
+      console.log(movies)
+      this.movies = movies;
+    })
   }
 
   showMovie(movie: Movie): void {
-    // this.movie = movie;
-    this.selectedMovie.emit(movie);
+    this.movie = movie;
+    this.active = true;
+    // this.selectedMovie.emit(movie);
   }
 
 }

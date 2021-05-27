@@ -18,4 +18,6 @@ export class AppComponent {
     this.order = e;
     console.log(this.order)
   }
+
+  
 }
