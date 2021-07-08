@@ -1,20 +1,27 @@
 
-<div class="container-fluid navbar">
-    <div class="button-group" (mouseover)="explainRelease=true" (mouseout)="explainRelease=false">
-        <button class="button" aria-expanded="false" (click)="showRelease()">
-            <p>Orden de estreno</p>
-        </button>
-        <div *ngIf="explainRelease" class="button-explained">
-            <p>Disfruta del viaje como los fans del MCU desde la primera película</p>
+<div class="container-fluid header">
+    <div class="row">
+        <div class="col-12">
+            <h1>Marvel Cinematic Universe</h1>
         </div>
     </div>
-    <div class="button-group" (mouseover)="explainChronology=true" (mouseout)="explainChronology=false">
-        <button class="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="showChronology()">
-            <p>Orden cronológico</p>
-        </button>
-        <div *ngIf="explainChronology"class="button-explained">
-            <p>Vive la experiencia según la línea temporal de los eventos del MCU</p>
+    <div class="row">
+        <div class="col-12 button-group">
+            <div class="order-button" (mouseover)="explainRelease=true" (mouseout)="explainRelease=false">
+                <button class="button" aria-expanded="false" (click)="showRelease()">
+                    <p>Orden de estreno</p>
+                </button>
+                <div *ngIf="explainRelease" class="button-explained">
+                    <p>Disfruta del viaje como los fans del MCU desde la primera película</p>
+                </div>
+            </div>
+            <div class="order-button" (mouseover)="explainChronology=true" (mouseout)="explainChronology=false">
+                <button class="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="showChronology()">
+                    <p>Orden cronológico</p>
+                </button>
+            <div *ngIf="explainChronology"class="button-explained">
+                    <p>Vive la experiencia según la línea temporal del MCU</p>
+            </div>
         </div>
     </div>
-
 </div>
