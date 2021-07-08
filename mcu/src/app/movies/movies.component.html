@@ -1,1 +1,30 @@
-<app-movies-list [release] = "release" (selectedMovie)= "selectMovie($event)"></app-movies-list>
+<div class="container-fluid">
+    <div class="row list">
+        <div *ngFor="let movie of movies" class="card col-lg-3 col-10 m-4 p-4" (click)="showMovie(movie)" data-toggle="modal" data-target="#exampleModal">
+            <div class="card-img">
+                <img src="../../../assets/images/{{movie.image}}.jpg" class="card-img-top" alt="...">
+            </div>
+            <h2 class="card-title">{{movie.title}}</h2>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade new-modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+            <div class="display-img">
+                <img src="../../../assets/images/banners/{{movie.image}}.jpg">
+            </div>
+            <h3>{{movie.title}}</h3>
+            <h5>{{movie.director}}, {{movie.release_year}}</h5>
+        </div>
+        <div class="modal-body">
+            <p>{{movie.description}}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn" data-dismiss="modal">Volver</button>
+        </div>
+      </div>
+    </div>
+  </div>

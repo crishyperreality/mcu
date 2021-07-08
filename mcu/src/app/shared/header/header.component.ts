@@ -21,21 +21,16 @@ export class HeaderComponent implements OnInit {
   showChronology(){
     this.release = false;
     this.order.emit(this.release)
-    // this.chronology = true;
-    // this.release = false;
-    // console.log(this.chronology);
-    // console.log(this.release);
   }
+
   showRelease(){
     this.release = true;
     this.order.emit(this.release)
-    // this.chronology = false;
-    // this.release = true;
-    // console.log(this.chronology);
-    // console.log(this.release);
   }
 
 
 }
+
+
 
 

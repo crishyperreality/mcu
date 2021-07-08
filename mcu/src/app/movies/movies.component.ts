@@ -1,6 +1,8 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
-import { Movie, Movies } from '../model/movie';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
+import { Movies } from 'src/app/model/movie';
 import { MoviesService } from './movies.service';
+import { HttpClient } from '@angular/common/http';
+import { Movie } from '../model/movie';
 
 @Component({
   selector: 'app-movies',
@@ -9,28 +11,44 @@ import { MoviesService } from './movies.service';
 })
 export class MoviesComponent implements OnInit, OnChanges {
 
-  @Input() movie: Movie;
+  @Output() selectedMovie = new EventEmitter<Movie>();
+  movie: Movie;
   movies: Movies;
   @Input() release: boolean;
-  constructor(private moviesService: MoviesService) { }
+  active: boolean = false;
+  constructor(private moviesService: MoviesService, httpClient: HttpClient) { }
 
   ngOnChanges(): void {
-    console.log(this.release)
-    console.log(this.movie)
+    if (this.release === false){
+      console.log('uno')
+      this.moviesService.viewChronologyOrder()
+        .subscribe((movies)=>{
+          console.log(movies)
+          this.movies = movies;
+        })
+    } else {
+      console.log('dos')
+      this.moviesService.viewReleaseOrder()
+        .subscribe((movies)=>{
+        console.log(movies)
+        this.movies = movies;
+      })
+    }
   }
 
   ngOnInit(): void {
-    // console.log('start')
-    // this.moviesService.viewReleaseOrder()
-    // .subscribe((movies)=>{
-    //   console.log(movies)
-    //   this.movies = movies;
-    // })
-    // this.moviesService.viewChronologyOrder()
-    //   .subscribe((movies)=>{
-    //     console.log(movies)
-    //     this.movies = movies;
-    //   })
+    console.log('hola!')
+    this.moviesService.viewReleaseOrder()
+    .subscribe((movies)=>{
+      console.log(movies)
+      this.movies = movies;
+      console.log(this.movies)
+    })
+  }
+
+  showMovie(movie: Movie): void {
+    this.movie = movie;
+    this.active = true;
   }
 
   selectMovie(e): void {
